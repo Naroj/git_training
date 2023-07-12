@@ -4,7 +4,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, TimeField
 from wtforms.validators import DataRequired, URL
 from werkzeug import exceptions
-import os, crypt, requests, time
+import os, crypt, requests, time, string
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
@@ -26,8 +26,9 @@ def home():
 @app.route('/add', methods=['GET', 'POST'])
 def add_cafe():
     form = CafeForm()
+    # allow alphanumeric
+    allow = tuple(tuple(str(i) for i in range(0, 10)) + tuple(string.ascii_lowercase))
     if form.validate_on_submit():
-        allow = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
         for char in list(form.naam.data):
             try:
                 allow.index(char)
