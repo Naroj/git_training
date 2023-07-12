@@ -1,0 +1,23 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static\css\styles.css">
+{% endblock %}
+
+
+{% block title %}Coffee en GIT{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+  <h1 class="display-4">☕️ & GIT 💻</h1>
+  <p class="lead">GIT training voor beginners</p>
+  <hr class="my-4">
+  <p>druk op de knop</p>
+  <a class="btn btn-warning btn-lg" href="/add" role="button">Maak je gebruiker aan</a>
+  <br><br><a href="/">GIT</a> - <a href="/wetty">Terminal</a>
+</div>
+    </div>
+
+{% endblock %}

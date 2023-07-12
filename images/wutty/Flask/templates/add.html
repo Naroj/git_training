@@ -1,0 +1,31 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="static\css\styles.css">
+{% endblock %}
+
+{% block title %}Maak gebruiker aan{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Nieuwe gebruiker</h1>
+      <h2>!! gebruik geen wachtwoord welke je elders gebruikt !! </h2>
+         <form method="POST" action="/add">
+             {{ form.hidden_tag() }}
+             {{ form.naam.label }}<br> {{ form.naam(size=100, maxlength=50, class="reg_form") }}<br>
+	     {{ form.wachtwoord.label }}<br> {{ form.wachtwoord(size=100, maxlength=50, class="reg_form") }}<br><br>
+             {{ form.submit(size=50, class="reg_form") }}
+        </form>
+
+      <!-- This is where your WTForm will go -->
+
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
